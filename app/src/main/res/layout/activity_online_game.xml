@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F45F4F">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="900dp"
+        android:layout_gravity="center"
+        android:background="#F45F4F"
+        tools:context="com.rincipack.tictactoe.MainActivity">
+
+
+
+        <TextView
+            android:id="@+id/x_win"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/jingle_star"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textSize="@dimen/_25ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/draw_win"
+            app:layout_constraintEnd_toStartOf="@+id/draw_win"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/draw_win" />
+
+        <ImageView
+            android:id="@+id/image_draw"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/img_3"
+            app:layout_constraintEnd_toStartOf="@+id/image_o"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/image_x"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/image_x"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/img_2"
+            app:layout_constraintBottom_toBottomOf="@+id/image_draw"
+            app:layout_constraintEnd_toStartOf="@+id/image_draw"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/image_draw"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/image_o"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/img_1"
+            app:layout_constraintBottom_toBottomOf="@+id/image_draw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/image_draw"
+            app:layout_constraintTop_toTopOf="@+id/image_draw"
+            tools:ignore="ImageContrastCheck" />
+
+
+        <TextView
+            android:id="@+id/draw_win"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/jingle_star"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textSize="@dimen/_25ssp"
+            app:layout_constraintEnd_toStartOf="@+id/o_win"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/x_win"
+            app:layout_constraintTop_toBottomOf="@+id/image_draw" />
+
+        <TextView
+            android:id="@+id/o_win"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/jingle_star"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textSize="@dimen/_25ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/draw_win"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/draw_win"
+            app:layout_constraintTop_toTopOf="@+id/draw_win" />
+
+        <TextView
+            android:id="@+id/winner_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/jingle_star"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/draw_win" />
+
+
+        <TextView
+            android:id="@+id/turn_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/jingle_star"
+            android:text="Turn:X"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/winner_result" />
+
+        <RelativeLayout
+            android:id="@+id/relativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/turn_indicator">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_1"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_above="@+id/b5"
+                android:layout_centerHorizontal="true"
+                android:background="#FDEF82">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_2"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_below="@+id/b5"
+                android:layout_centerHorizontal="true"
+                android:background="#FDEF82">
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/b5"
+                android:background="#FDEF82">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout4"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/b5"
+                android:background="#FDEF82"
+
+                >
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b1"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_above="@+id/rl_1"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_toStartOf="@+id/relativeLayout4"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b2"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_above="@+id/rl_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b3"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_above="@+id/rl_1"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_toEndOf="@+id/relativeLayout3"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b4"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_toStartOf="@+id/relativeLayout4"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b5"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b6"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_toEndOf="@+id/relativeLayout3"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b7"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_below="@+id/rl_2"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_toStartOf="@+id/relativeLayout4"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b8"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_below="@+id/rl_2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b9"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_below="@+id/rl_2"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_toEndOf="@+id/relativeLayout3"
+                android:backgroundTint="#FFC107"
+                android:contentDescription="@string/app_name"
+                android:fontFamily="@font/jingle_star"
+                android:onClick="get_values"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                tools:ignore="UsingOnClickInXml" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/restart"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:backgroundTint="#FDEF82"
+            android:fontFamily="@font/jingle_star"
+            android:text="@string/restart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativelayout" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/newgame"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:backgroundTint="#FDEF82"
+            android:fontFamily="@font/jingle_star"
+            android:text="@string/new_game"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/restart" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

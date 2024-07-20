@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F45F4F"
+    tools:context="com.rincipack.tictactoe.OnlineCodeActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="169dp"
+            android:layout_height="142dp"
+            android:layout_marginTop="140dp"
+            android:src="@drawable/crown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Challange your friends!"
+            android:textSize="@dimen/_22ssp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/jingle_star"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <EditText
+            android:id="@+id/game_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:background="@color/white"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:backgroundTint="@android:color/white"
+            android:hint="Enter Game Code"
+            android:padding="12dp"
+
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/generate_code_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/_40sdp"
+
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/jingle_star"
+            android:padding="14dp"
+            android:text="Generate Random Code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/game_code" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/create_game_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/jingle_star"
+            android:padding="14dp"
+            android:text="Create Game"
+            app:layout_constraintBottom_toBottomOf="@+id/join_game_button"
+            app:layout_constraintEnd_toStartOf="@+id/join_game_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/join_game_button"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/join_game_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/jingle_star"
+            android:padding="14dp"
+            android:text="Join Game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/create_game_button"
+            app:layout_constraintTop_toBottomOf="@+id/generate_code_button" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/share_code_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/generate_code_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/jingle_star"
+            android:padding="14dp"
+            android:text="Share Code"
+            app:layout_constraintEnd_toEndOf="@+id/join_game_button"
+            app:layout_constraintHorizontal_bias="0.54"
+            app:layout_constraintStart_toStartOf="@+id/create_game_button"
+            app:layout_constraintTop_toBottomOf="@+id/join_game_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
