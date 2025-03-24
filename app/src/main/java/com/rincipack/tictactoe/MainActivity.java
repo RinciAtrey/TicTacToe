@@ -7,7 +7,6 @@ import androidx.core.view.WindowCompat;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.rincipack.tictactoe.R;
+import com.google.android.gms.ads.MobileAds;
 public class MainActivity extends AppCompatActivity {
     Button b1, b2, b3, b4, b5, b6, b7, b8, b9, restart, newgame;
     TextView x_win, o_win, draw_win, winner_result, turn_indicator;
@@ -30,25 +29,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
+
         setContentView(R.layout.activity_main);
         id();
 
         newgame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetGame();
-                countero = 0;
-                counterx = 0;
-                counter_draw = 0;
-                x_win.setText("0");
-                o_win.setText("0");
-                draw_win.setText("0");
-                nextGameStartWithX = true; // Ensure new game starts with X
-                isXTurn = true; // Ensure turn indicator starts with X
-                updateTurnIndicator();
-                Toast.makeText(MainActivity.this, "New game has started", Toast.LENGTH_SHORT).show();
-            }
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("New Game")
+                            .setMessage("Are you sure you want to start a new game? This will reset the current scores.")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    resetGame();
+                                    countero = 0;
+                                    counterx = 0;
+                                    counter_draw = 0;
+                                    x_win.setText("0");
+                                    o_win.setText("0");
+                                    draw_win.setText("0");
+                                    nextGameStartWithX = true; // Ensure new game starts with X
+                                    isXTurn = true; // Ensure turn indicator starts with X
+                                    updateTurnIndicator();
+                                }
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
+                }
+
         });
+
 
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,6 +258,10 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
     }
+
+
+
+
 
 
 

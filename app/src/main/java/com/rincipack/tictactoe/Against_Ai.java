@@ -27,7 +27,7 @@ public class Against_Ai extends AppCompatActivity {
     int count = 0;
     int counterx = 0, countero = 0, counter_draw = 0;
     boolean playerStartsNext = true; // Variable to track who starts the next game
-    final int AI_MOVE_DELAY = 300; // AI move delay in milliseconds
+    final int AI_MOVE_DELAY = 800; // AI move delay in milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +47,20 @@ public class Against_Ai extends AppCompatActivity {
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                restart();
+                new AlertDialog.Builder(Against_Ai.this)
+                        .setTitle("Restart Game")
+                        .setMessage("Are you sure you want to start new round?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                restart();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
             }
         });
+
 
         // Initially set to the player's turn
         turn_indicator.setText("Player's Turn (X)");
@@ -92,6 +103,7 @@ public class Against_Ai extends AppCompatActivity {
     }
 
     private void aiMoveWithDelay() {
+        // Use the same delay for all AI moves
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -113,6 +125,7 @@ public class Against_Ai extends AppCompatActivity {
             }
         }
     }
+
 
     private Button precomputeBestMove() {
         if (count == 0 || (count == 1 && !playerStartsNext)) {
@@ -289,15 +302,26 @@ public class Against_Ai extends AppCompatActivity {
     }
 
     private void startNewGame() {
-        restart();
-        countero = 0;
-        counterx = 0;
-        counter_draw = 0;
-        x_win.setText("0");
-        o_win.setText("0");
-        draw_win.setText("0");
-        Toast.makeText(Against_Ai.this, "New game has started", Toast.LENGTH_SHORT).show();
-        playerStartsNext = true; // Ensure player starts the new game
+        new AlertDialog.Builder(this)
+                .setTitle("New Game")
+                .setMessage("Are you sure you want to start a new game? This will reset the current scores.")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        counterx = 0;
+                        countero = 0;
+                        counter_draw = 0;
+                        x_win.setText("0");
+                        o_win.setText("0");
+                        draw_win.setText("0");
+                        playerStartsNext = true;
+                        restart();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+
+
     }
 
     @Override

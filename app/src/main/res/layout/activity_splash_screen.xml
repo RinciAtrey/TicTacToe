@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="#F45F4F"
     android:layout_gravity="center"
+    android:background="#F45F4F"
+    android:orientation="vertical"
     tools:context="com.rincipack.tictactoe.SplashScreen">
 
 
@@ -15,11 +15,10 @@
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_100sdp"
         android:layout_gravity="center"
-        android:layout_marginTop="276dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
         app:srcCompat="@drawable/tictactoe" />
 
     <TextView
@@ -51,6 +50,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="1dp"
+        app:layout_constraintGuide_percent="0.3"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

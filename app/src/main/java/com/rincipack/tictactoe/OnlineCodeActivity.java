@@ -1,5 +1,7 @@
 package com.rincipack.tictactoe;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -62,7 +64,6 @@ public class OnlineCodeActivity extends AppCompatActivity {
                     Toast.makeText(OnlineCodeActivity.this, "Game code must be of 6 characters", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Log.d(TAG, "Creating game with code: " + gameCode);
                 createGame(gameCode);
             }
         });
@@ -198,4 +199,6 @@ public class OnlineCodeActivity extends AppCompatActivity {
         }
         return code.toString();
     }
+
+
 }

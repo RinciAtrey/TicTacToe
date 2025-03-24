@@ -7,6 +7,7 @@
     <string name="_2_player" translatable="false">2 Player</string>
     <string name="play_against_ai" translatable="false">Play Against AI</string>
     <string name="play_online" translatable="false">Play online</string>
+    <string name="tictactoe" translatable="false">TicTacToe</string>
 
 
 </resources>

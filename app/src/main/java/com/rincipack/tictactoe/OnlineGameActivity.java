@@ -75,14 +75,31 @@ public class OnlineGameActivity extends AppCompatActivity {
         newgame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startNewGame();
+
+                new AlertDialog.Builder(OnlineGameActivity.this)
+                        .setTitle("Restart Game")
+                        .setMessage("Are you sure you want to start new round?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startNewGame();
+                            }
+                        }).setNegativeButton("No", null).show();
             }
         });
 
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetGame();
+                new AlertDialog.Builder(OnlineGameActivity.this)
+                        .setTitle("Restart Game")
+                        .setMessage("Are you sure you want to start new round?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                resetGame();
+                            }
+                        }).setNegativeButton("No", null).show();
             }
         });
 
@@ -311,7 +328,6 @@ public class OnlineGameActivity extends AppCompatActivity {
 
     private void resetGame() {
         gameRef.child("reset").setValue(true);
-        Toast.makeText(this, "resetgame", Toast.LENGTH_SHORT).show();
     }
 
     private void resetGameLocally() {
@@ -357,7 +373,6 @@ public class OnlineGameActivity extends AppCompatActivity {
         // Ensure starting player resets to "X" for a full new game
         startingPlayer = "X";
 
-        Toast.makeText(this, "New game started!", Toast.LENGTH_SHORT).show();
     }
 
     private void removeGameIfBothExited() {
