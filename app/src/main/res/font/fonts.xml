@@ -4,6 +4,4 @@
     android:font="@font/freedom_font"
     android:fontWeight="@integer/material_motion_duration_long_1"
     android:fontStyle="normal"  />
-
-    />
 </font-family>
